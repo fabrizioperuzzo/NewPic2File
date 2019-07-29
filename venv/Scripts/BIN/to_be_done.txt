@@ -1,0 +1,8 @@
+###########################    TO BE DONE
+
+if len(self.ls_point) == 0: tkMessageBox.showinfo("Message", "select the origin")
+if len(self.ls_point) == 1: tkMessageBox.showinfo("Message", "select a point on the y axis")
+if len(self.ls_point) == 2: tkMessageBox.showinfo("Message", "select a point on the x axis")
+if len(self.ls_point) == 3: tkMessageBox.showinfo("Message", "select the points inside the graph")
+
+
