@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="261dd103-fa53-453a-b326-38038c4b1406" name="Default Changelist" comment="Added name bottom left of main page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewPic2File.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,11 +147,6 @@
             <path>
               <item name="NewPic2File" type="b2602c69:ProjectViewProjectNode" />
               <item name="NewPic2File" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NewPic2File" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NewPic2File" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -334,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564433926484</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added name bottom left of main page">
+      <created>1564436652069</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1564436652069</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -419,7 +421,8 @@
     <MESSAGE value="secomd commit" />
     <MESSAGE value="readmefile modified" />
     <MESSAGE value="Idea files changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Idea files changed" />
+    <MESSAGE value="Added name bottom left of main page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added name bottom left of main page" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/GUI/image/old_code.py" />

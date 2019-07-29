@@ -1,1 +1,0 @@
-https://github.com/fabrizioperuzzo/-NewPic2File.git
