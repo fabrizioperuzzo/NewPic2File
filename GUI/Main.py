@@ -146,7 +146,7 @@ root = tk.Tk()
 root.title("   Geodata Point2Graph  ")
 screenwidth = root.winfo_screenwidth()
 distance = screenwidth - 500 # 500 se 500x700
-root.geometry('500x700+'+str(distance)+'+100') # porta al di sotto dell'angolo di 100 pixel
+root.geometry('500x500+'+str(distance)+'+100') # porta al di sotto dell'angolo di 100 pixel
 
 curr_dir = os.path.dirname(__file__)
 img_path = curr_dir + "/image/gd_small.gif"
@@ -213,7 +213,10 @@ ent5 = tk.Entry(root)
 ent5.insert(0, ls_lbl_in[3])
 ent5.pack()
 
-
+w5 = tk.Label(root,
+              justify=tk.LEFT,
+              padx = 10,
+              text="Fabrizio Peruzzo 2019").pack(side="left")
 
 #####################################################   FUNZIONI OPENCV  DALLA CLASSE
 
