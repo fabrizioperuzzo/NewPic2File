@@ -19,16 +19,21 @@ def read_label():
     unit_y_in = ls_label[1]
     label_x_in = ls_label[2]
     unit_x_in = ls_label[3]
+    x0_in = ls_label[4]
+    y0_in = ls_label[5]
 
-    return label_y_in,unit_y_in,label_x_in,unit_x_in
+    return label_y_in,unit_y_in,label_x_in,unit_x_in,x0_in,y0_in
 ##########################################################
-def write_label(label_y,unit_y,label_x,unit_x):
+def write_label(label_y,unit_y,label_x,unit_x,x0,y0):
 
     ls_label_in=[]
     ls_label_in.append(label_y+'\n')
     ls_label_in.append(unit_y+'\n')
     ls_label_in.append(label_x+'\n')
     ls_label_in.append(unit_x+'\n')
+    ls_label_in.append(x0+'\n')
+    ls_label_in.append(y0+'\n')
+    
 
     f = open("SETTINGS\\label_input.txt", 'w')
 
@@ -182,6 +187,12 @@ lab.pack()
 ent = tk.Entry(root)
 ent.pack()
 
+lab7 = tk.Label(root, text="Inserire origine Y")
+lab7.pack()
+ent7 = tk.Entry(root)
+ent7.insert(0, ls_lbl_in[5])
+ent7.pack()
+
 lab2 = tk.Label(root, text="Inserire label Y")
 lab2.pack()
 ent2 = tk.Entry(root)
@@ -201,6 +212,12 @@ lab1.pack()
 ent1 = tk.Entry(root)
 ent1.pack()
 
+lab6 = tk.Label(root, text="Inserire origine X")
+lab6.pack()
+ent6 = tk.Entry(root)
+ent6.insert(0, ls_lbl_in[4])
+ent6.pack()
+
 lab3 = tk.Label(root, text="Inserire label X")
 lab3.pack()
 ent3 = tk.Entry(root)
@@ -212,6 +229,11 @@ lab5.pack()
 ent5 = tk.Entry(root)
 ent5.insert(0, ls_lbl_in[3])
 ent5.pack()
+
+
+
+
+
 
 w5 = tk.Label(root,
               justify=tk.LEFT,
