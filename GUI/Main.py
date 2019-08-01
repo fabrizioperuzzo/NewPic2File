@@ -8,19 +8,32 @@ import os
 #            RICHIAMO TUTTE LE DEF
 ##########################################################
 def read_label():
-    f = open("SETTINGS\\label_input.txt", 'r')
-    with f:
-        ls_label = f.readlines()
 
-    for i in ls_label:
-        ls_label[ls_label.index(i)] = i.replace('\n', '')
+    try:
 
-    label_y_in = ls_label[0]
-    unit_y_in = ls_label[1]
-    label_x_in = ls_label[2]
-    unit_x_in = ls_label[3]
-    x0_in = ls_label[4]
-    y0_in = ls_label[5]
+        f = open("SETTINGS\\label_input.txt", 'r')
+        with f:
+            ls_label = f.readlines()
+
+        for i in ls_label:
+            ls_label[ls_label.index(i)] = i.replace('\n', '')
+
+        label_y_in = ls_label[0]
+        unit_y_in = ls_label[1]
+        label_x_in = ls_label[2]
+        unit_x_in = ls_label[3]
+        x0_in = ls_label[4]
+        y0_in = ls_label[5]
+
+    except:
+
+        label_y_in = 'labely'
+        unit_y_in = 'unity'
+        label_x_in = 'labelx'
+        unit_x_in = 'unitx'
+        x0_in = 0
+        y0_in = 0
+
 
     return label_y_in,unit_y_in,label_x_in,unit_x_in,x0_in,y0_in
 ##########################################################
@@ -49,8 +62,8 @@ def print_entry():
 ##########################################################
 
 def store_lbl_entry():
-    ls_lbl_out = [ent2.get(),ent4.get(),ent3.get(),ent5.get()]
-    write_label(ls_lbl_out[0],ls_lbl_out[1],ls_lbl_out[2],ls_lbl_out[3])
+    ls_lbl_out = [ent2.get(),ent4.get(),ent3.get(),ent5.get(),ent8.get(),ent7.get()]
+    write_label(ls_lbl_out[0],ls_lbl_out[1],ls_lbl_out[2],ls_lbl_out[3],ls_lbl_out[4],ls_lbl_out[5])
 
     return ls_lbl_out
 
@@ -79,8 +92,8 @@ def coordinates():
 
     cols=ist1.ls_point
     coo=cols[3:]
-    Lyt = float(ent.get())
-    Lxt = float(ent1.get())
+    Lyt = float(ent.get())- float(ent7.get())
+    Lxt = float(ent1.get())-float(ent8.get())
     xcoo = []
     ycoo = []
 
@@ -151,7 +164,7 @@ root = tk.Tk()
 root.title("   Geodata Point2Graph  ")
 screenwidth = root.winfo_screenwidth()
 distance = screenwidth - 500 # 500 se 500x700
-root.geometry('500x500+'+str(distance)+'+100') # porta al di sotto dell'angolo di 100 pixel
+root.geometry('500x600+'+str(distance)+'+100') # porta al di sotto dell'angolo di 100 pixel
 
 curr_dir = os.path.dirname(__file__)
 img_path = curr_dir + "/image/gd_small.gif"
@@ -174,18 +187,21 @@ w4.pack()
 
 ls_lbl_in = read_label()
 
-
 lab6 = tk.Label(root, text="Inserire nome file senza estensione")
 lab6.pack()
 ent6 = tk.Entry(root)
 ent6.pack()
 
-##########
+################################### YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 
 lab = tk.Label(root, text="Inserire coordinata Y")
 lab.pack()
 ent = tk.Entry(root)
 ent.pack()
+
+chb1 = tk.Checkbutton(root, text="Log scale")
+chb1.pack()
+
 
 lab7 = tk.Label(root, text="Inserire origine Y")
 lab7.pack()
@@ -205,18 +221,21 @@ ent4 = tk.Entry(root)
 ent4.insert(0, ls_lbl_in[1])
 ent4.pack()
 
-###########
+######################################## XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 lab1 = tk.Label(root, text="Inserire coordinata X")
 lab1.pack()
 ent1 = tk.Entry(root)
 ent1.pack()
 
-lab6 = tk.Label(root, text="Inserire origine X")
-lab6.pack()
-ent6 = tk.Entry(root)
-ent6.insert(0, ls_lbl_in[4])
-ent6.pack()
+chb2 = tk.Checkbutton(root, text="Log scale")
+chb2.pack()
+
+lab8 = tk.Label(root, text="Inserire origine X")
+lab8.pack()
+ent8 = tk.Entry(root)
+ent8.insert(0, ls_lbl_in[4])
+ent8.pack()
 
 lab3 = tk.Label(root, text="Inserire label X")
 lab3.pack()
@@ -233,12 +252,10 @@ ent5.pack()
 
 
 
-
-
 w5 = tk.Label(root,
               justify=tk.LEFT,
               padx = 10,
-              text="Fabrizio Peruzzo 2019").pack(side="left")
+              text="Fabrizio Peruzzo 2019 Geodata S.p.a").pack(side="left")
 
 #####################################################   FUNZIONI OPENCV  DALLA CLASSE
 

@@ -1,4 +1,6 @@
-z
+labely
 m
-Gradacion
-%
+labelx
+m
+5
+3
