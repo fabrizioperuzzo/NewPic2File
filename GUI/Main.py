@@ -127,10 +127,13 @@ def coordinates():
     ycoot = []
 
     for i in xcoo:
-        xcoot.append(i*fattconvx)
+        if chkValueX = True: xcoot.append(i*fattconvx)
+        if chkValueX = False: xcoot.append(i*fattconvx)
 
     for i in ycoo:
-        ycoot.append(i*fattconvy)
+        if chkValueY = True: xcoot.append(i * fattconvx)
+        if chkValueY = False: xcoot.append(i * fattconvx)
+
 
     print 'Y coo: ', ycoot
     print 'X coo: ', xcoot
@@ -199,7 +202,8 @@ lab.pack()
 ent = tk.Entry(root)
 ent.pack()
 
-chb1 = tk.Checkbutton(root, text="Log scale")
+chkValueY = tk.BooleanVar()
+chb1 = tk.Checkbutton(root, text="Log scale",var=chkValueY)
 chb1.pack()
 
 
@@ -228,7 +232,8 @@ lab1.pack()
 ent1 = tk.Entry(root)
 ent1.pack()
 
-chb2 = tk.Checkbutton(root, text="Log scale")
+chkValueX = tk.BooleanVar()
+chb2 = tk.Checkbutton(root, text="Log scale",var=chkValueX)
 chb2.pack()
 
 lab8 = tk.Label(root, text="Inserire origine X")
