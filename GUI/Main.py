@@ -1,13 +1,24 @@
 import Tkinter as tk
 from class_point2graph import *
 import numpy as np
+import tkMessageBox
 import sys
 import os
 import math
 
+
+
+
 ##########################################################
 #            RICHIAMO TUTTE LE DEF
 ##########################################################
+def restart_program():
+    """Restarts the current program.
+    Note: this function does not return. Any cleanup action (like
+    saving data) must be done before calling this function."""
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+
 def read_label():
 
     try:
@@ -94,17 +105,29 @@ def coordinates():
     cols=ist1.ls_point  #recupero le coord dalla classe creata (le prime 3 coo sono gli assi)
     coo=cols[3:]        #dalla 3 coordinata in poi lista punti grafico
 
+    ckvY = chkValueY.get()
+    ckvX = chkValueX.get()
 
-    ly1=float(ent.get())
-    ly2=float(ent7.get())
-    lx1=float(ent1.get())
-    lx2=float(ent8.get())
+    try:
+        if ckvY == True:
+            ly1 = math.log10(float(ent.get()))
+            ly2 = math.log10(float(ent7.get()))# origin of Y axis
+        else:
+            ly1=float(ent.get())
+            ly2=float(ent7.get())  # origin of Y axis
 
-    if chkValueY == True: Lyt = math.log10(ly1)- math.log10(ly2)
-    if chkValueX == True: Lxt = math.log10(lx1)- math.log10(lx2)
+        if ckvX == True:
+            lx1 = math.log10(float(ent1.get()))
+            lx2 = math.log10(float(ent8.get()))# origin of Y axis
+        else:
+            lx1=float(ent1.get())
+            lx2=float(ent8.get())  # origin of X axis
+    except:
+        tkMessageBox.showerror("Error", "Errore formato")
 
-    if chkValueY == False: Lyt = float(ly1)- float(ly2)
-    if chkValueX == False: Lxt = float(lx1)-float(lx2)
+
+    Lyt = ly1- ly2
+    Lxt = lx1-lx2
 
     xcoo = []
     ycoo = []
@@ -126,8 +149,14 @@ def coordinates():
         Lx = Lx1
         Ly = Ly1
 
-    print Lx1
-    print Lx
+    print 'Lx is:',Lx
+    print 'Ly is:', Ly
+    print 'Lyt is:',Lyt
+    print 'Lxt is:',Lxt
+    print 'ly1 is:',ly1
+    print 'lx1 is:',lx1
+    print 'chkvaluey is:',ckvY
+    print 'chkvaluex is:',ckvX
 
     fattconvy = Lyt/Ly
     fattconvx = Lxt/Lx
@@ -139,15 +168,26 @@ def coordinates():
     ycoot = []
 
     for i in xcoo:
-        if chkValueX == True: xcoot.append((i*fattconvx)**10)
-        if chkValueX == False: xcoot.append(i*fattconvx)
+        if ckvX == True:
+            xcoot.append(math.pow(10,(i*fattconvx+lx2)))
+        else:
+            xcoot.append(i*fattconvx+lx2)
 
     for i in ycoo:
-        if chkValueY == True: xcoot.append((i * fattconvx)**10)
-        if chkValueY == False: xcoot.append(i * fattconvx)
+        if ckvY == True:
+            ycoot.append(math.pow(10,(i*fattconvy+ly2)))
+        else:
+            ycoot.append(i*fattconvy+ly2)
 
-    print 'Y coo: ', ycoot
-    print 'X coo: ', xcoot
+    if ckvY==True:
+        print 'Y coo: ', ['%.2E' % x for x in ycoot]
+    else:
+        print 'Y coo: ', ycoot
+
+    if ckvX==True:
+        print 'X coo:', ['%.2E' % x for x in xcoot]
+    else:
+        print 'X coo: ', xcoot
 
     write_files(ycoot, xcoot, ls_lbl_in_f[0], ls_lbl_in_f[2],ls_lbl_in_f[1],ls_lbl_in_f[3])
 
@@ -172,13 +212,17 @@ def coordinates():
 #               INIZIO             CODICE
 #############################################################
 
-
+#tk= tkinter is the module
+#Tk is the class inside tkinter you dont need arguments
 
 root = tk.Tk()
+
 root.title("   Geodata Point2Graph  ")
 screenwidth = root.winfo_screenwidth()
-distance = screenwidth - 500 # 500 se 500x700
-root.geometry('500x600+'+str(distance)+'+100') # porta al di sotto dell'angolo di 100 pixel
+winwidth=500
+winheight=750
+distance = screenwidth - winwidth
+root.geometry(str(winwidth)+'x'+str(winheight)+'+'+str(distance)+'+100') # porta al di sotto dell'angolo di 100 pixel
 
 curr_dir = os.path.dirname(__file__)
 img_path = curr_dir + "/image/gd_small.gif"
@@ -214,8 +258,8 @@ ent = tk.Entry(root)
 ent.pack()
 
 chkValueY = tk.BooleanVar()
-chkValueY = False
-chb1 = tk.Checkbutton(root, text="Log scale",var=chkValueY)
+#chkValueY = False
+chb1 = tk.Checkbutton(root, text="Log scale",variable=chkValueY)
 chb1.pack()
 
 
@@ -245,7 +289,7 @@ ent1 = tk.Entry(root)
 ent1.pack()
 
 chkValueX = tk.BooleanVar()
-chkValueX = False
+#chkValueX = False
 chb2 = tk.Checkbutton(root, text="Log scale",var=chkValueX)
 chb2.pack()
 
@@ -267,7 +311,7 @@ ent5 = tk.Entry(root)
 ent5.insert(0, ls_lbl_in[3])
 ent5.pack()
 
-
+tk.Button(root, text="Restart", command=restart_program).pack()
 
 
 w5 = tk.Label(root,
