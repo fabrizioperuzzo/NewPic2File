@@ -3,6 +3,7 @@ from class_point2graph import *
 import numpy as np
 import sys
 import os
+import math
 
 ##########################################################
 #            RICHIAMO TUTTE LE DEF
@@ -90,10 +91,21 @@ def coordinates():
 
     ls_lbl_in_f = store_lbl_entry()
 
-    cols=ist1.ls_point
-    coo=cols[3:]
-    Lyt = float(ent.get())- float(ent7.get())
-    Lxt = float(ent1.get())-float(ent8.get())
+    cols=ist1.ls_point  #recupero le coord dalla classe creata (le prime 3 coo sono gli assi)
+    coo=cols[3:]        #dalla 3 coordinata in poi lista punti grafico
+
+
+    ly1=float(ent.get())
+    ly2=float(ent7.get())
+    lx1=float(ent1.get())
+    lx2=float(ent8.get())
+
+    if chkValueY == True: Lyt = math.log10(ly1)- math.log10(ly2)
+    if chkValueX == True: Lxt = math.log10(lx1)- math.log10(lx2)
+
+    if chkValueY == False: Lyt = float(ly1)- float(ly2)
+    if chkValueX == False: Lxt = float(lx1)-float(lx2)
+
     xcoo = []
     ycoo = []
 
@@ -127,13 +139,12 @@ def coordinates():
     ycoot = []
 
     for i in xcoo:
-        if chkValueX = True: xcoot.append(i*fattconvx)
-        if chkValueX = False: xcoot.append(i*fattconvx)
+        if chkValueX == True: xcoot.append((i*fattconvx)**10)
+        if chkValueX == False: xcoot.append(i*fattconvx)
 
     for i in ycoo:
-        if chkValueY = True: xcoot.append(i * fattconvx)
-        if chkValueY = False: xcoot.append(i * fattconvx)
-
+        if chkValueY == True: xcoot.append((i * fattconvx)**10)
+        if chkValueY == False: xcoot.append(i * fattconvx)
 
     print 'Y coo: ', ycoot
     print 'X coo: ', xcoot
@@ -203,6 +214,7 @@ ent = tk.Entry(root)
 ent.pack()
 
 chkValueY = tk.BooleanVar()
+chkValueY = False
 chb1 = tk.Checkbutton(root, text="Log scale",var=chkValueY)
 chb1.pack()
 
@@ -233,6 +245,7 @@ ent1 = tk.Entry(root)
 ent1.pack()
 
 chkValueX = tk.BooleanVar()
+chkValueX = False
 chb2 = tk.Checkbutton(root, text="Log scale",var=chkValueX)
 chb2.pack()
 

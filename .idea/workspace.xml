@@ -4,6 +4,8 @@
     <list default="true" id="261dd103-fa53-453a-b326-38038c4b1406" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/SETTINGS/label_input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/SETTINGS/label_input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/image/screenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/image/screenshot.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
+            <state relative-caret-position="2864">
+              <caret line="198" lean-forward="true" selection-start-line="198" selection-end-line="198" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -353,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564646653985</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Logscale choice added">
+      <created>1564647561024</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1564647561024</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -550,8 +559,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
+        <state relative-caret-position="2864">
+          <caret line="198" lean-forward="true" selection-start-line="198" selection-end-line="198" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
