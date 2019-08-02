@@ -96,7 +96,7 @@ def write_files(list1, list2, label1, label2, unit1, unit2):
     f.write(unit1 + ';' + unit2 + '\n')
 
     for n in range(1, (len(list1)+1)):
-        str_append = str(list1[n - 1]) + ';' + str(list2[n - 1]) + '\n'
+        str_append = str(list2[n - 1]) + ';' + str(list1[n - 1]) + '\n'
         f.write(str_append)
     f.close()
 
@@ -265,6 +265,28 @@ resize_cmd_win_small()
 
 root = tk.Tk()
 
+########      TOP FRAME   ######################################################
+
+topframe = tk.Frame(root, bg="blue")
+topframe.pack()
+bottomframe = tk.Frame(root)
+bottomframe.pack(side="bottom")
+
+button1 = tk.Button(topframe, text=" ST 1 PRINT SCR ", fg="red")
+button2 = tk.Button(topframe, text=" ST 2 CROP ", fg="blue")
+button3 = tk.Button(topframe, text=" ST 3 SELECT ", fg="green")
+button4 = tk.Button(topframe, text=" ST 4 CREATE ", fg="purple")
+
+button1.pack(side='left', padx=4, pady=2)
+button2.pack(side='left', padx=4, pady=2)
+button3.pack(side='left', padx=4, pady=2)
+button4.pack(side='left', padx=4, pady=2)
+
+topframe.pack(side="top", fill="x")
+
+
+
+
 root.title("   Geodata Point2Graph  ")
 screenwidth = root.winfo_screenwidth()
 winwidth = 500
@@ -282,8 +304,8 @@ photo = tk.PhotoImage(file=img_path)
 root.tk.call("wm", "iconphoto", root._w, photo)
 
 w = tk.Label(root, text="Fill the form below")
-w1 = tk.Label(root, text="Select options from file/menu")
-w2 = tk.Label(root, text="Follow steps from 1 to 3")
+w1 = tk.Label(root, text="Select options from file/menu ")
+w2 = tk.Label(root, text="Follow steps from 1 to 4")
 w3 = tk.Label(root, text="Grab csv data in OUT folder")
 w4 = tk.Label(root, text="              ")
 
@@ -372,24 +394,24 @@ w5 = tk.Label(root,
               padx=10,
               text="Fabrizio Peruzzo 2019 Geodata S.p.a").pack(side="left")
 
-# FUNZIONI OPENCV  DALLA CLASSE
 
-########################################
-ist1 = point2graph()
-############Menu########################
+# FUNZIONI OPENCV  DALLA CLASSE
+#############################################################################
+ist1 = point2graph()    #######    INITIALIZE THE CLASS -_> ISTANCE   #######
+############Menu#############################################################
 
 menubar = tk.Menu(root)
 filemenu = tk.Menu(menubar, tearoff=1)
 menubar.add_cascade(label="File",  menu=filemenu)
 
-filemenu.add_cascade(label="0) Print_Screen",
+filemenu.add_cascade(label="1) Print_Screen",
                      command=lambda: ist1.print_screen())
-filemenu.add_cascade(label="1) Crop_Image", command=lambda: ist1.crop_image())
-filemenu.add_cascade(label="2) Pic_Orig_X_Y_Points",
+filemenu.add_cascade(label="2) Crop_Image", command=lambda: ist1.crop_image())
+filemenu.add_cascade(label="3) Pic_Orig_X_Y_Points",
                      command=lambda: ist1.get_point())
 entry = print_entry
 #filemenu.add_cascade(label="3) Print_Entry", command=lambda: entry()) donna inutile
-filemenu.add_cascade(label="3) Print_Coordinate",
+filemenu.add_cascade(label="4) Print_Coordinate",
                      command=lambda: coordinates())  # in automatico scrive il file
 
 filemenu.add_separator()
