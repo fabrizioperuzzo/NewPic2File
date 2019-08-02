@@ -1,4 +1,4 @@
-labely
+labelY
 m
 labelx
 m

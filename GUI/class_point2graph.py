@@ -11,7 +11,10 @@ class point2graph:
     def __init__(self):
 
         self.filename = "image\\screenshot.png"
+        self.filename_temp = "image\\temp_image.png"
+        self.filename_init = "image\\init_image.png"
         self.image = cv2.imread(self.filename)
+        self.image_temp = cv2.imread(self.filename)
         self.refPt = []
         self.ls_point = []
         self.cropping = False
@@ -22,9 +25,10 @@ class point2graph:
         self.x_end = 0
         self.y_end = 0
         self.cropped = False
-        
+        self.delistance = False
+
     def print_screen(self):
-        
+
         imgss = pyautogui.screenshot()
         imgss = cv2.cvtColor(np.array(imgss), cv2.COLOR_RGB2BGR)
         imgss = cv2.imwrite(self.filename, imgss)
@@ -52,6 +56,7 @@ class point2graph:
                 if len(refPoint) == 2:  # when two points were found
                     self.image = self.image[refPoint[0][1]:refPoint[1][1], refPoint[0][0]:refPoint[1][0]]
                     self.cropped = True
+                    imgss_init = cv2.imwrite(self.filename_init, self.image)
 
         while True:
 
@@ -61,24 +66,60 @@ class point2graph:
             if cv2.waitKey(1) & self.cropped == True:
                 break
         cv2.destroyAllWindows()
-            
 
-
+    def reinitialize(self):
+        self.ls_point = []
+        print "The list has been reinitialized"
+        self.image = cv2.imread(self.filename_init)
+        self.delistance = False
 
     def get_point(self):
 
         def draw_point(event, x, y, flags, param):
 
             if event == cv2.EVENT_LBUTTONDBLCLK:
+                imgss_temp = cv2.imwrite(self.filename_temp, self.image)
                 cv2.circle(self.image, (x, y), 2, (0, 0, 238), 1)
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 strxy = str(x) + ',' + str(y)
                 cv2.putText(self.image, strxy, (x + 5, y), font, 0.4, (0, 0, 238), 1)
                 cv2.imshow("image", self.image)
                 print(x, y)
-                self.ls_point.append([x,y])
+                self.ls_point.append([x, y])
+                self.delistance = True
 
-        if len(self.ls_point) == 0: tkMessageBox.showinfo("Message", "SELECT IN THE ORDER:\n  \n   1) ORIGIN POINT\n   2) POINT ON Y AXIS\n   3) POINT ON X AXIS\n   4) POINTS OF THE GRAPH\n   \nPRESS ESC TO SAVE DATA")
+
+            elif event == cv2.EVENT_RBUTTONDOWN:
+                if self.delistance == True:
+                    self.ls_point.pop()
+                    print self.ls_point
+                    self.image = cv2.imread(self.filename_temp)
+                    cv2.imshow("image", self.image)
+                    self.delistance = False
+                elif self.delistance == False:
+                    MsgBox = tkMessageBox.askquestion("Warning",
+                                                      "Cannot Redo more than one instance\nDo you want to reinitialize all?",
+                                                      icon='warning')
+                    if MsgBox == 'yes':
+                        self.ls_point = []
+                        print 'hai schiacciato si'
+                        print "The list has been reinitialized"
+                        self.image = cv2.imread(self.filename_init)
+                        cv2.imshow("image", self.image)
+                        self.delistance = False
+                    else:
+                        self.delistance = True
+                        print 'hai schiacciato no'
+
+        if len(self.ls_point) == 0: tkMessageBox.showinfo("Message",
+                                                          "SELECT IN THE ORDER:\n  \n   "
+                                                          "1) ORIGIN\n   "
+                                                          "2) MAX Y AXIS\n   "
+                                                          "3) MAX X AXIS\n   "
+                                                          "4) POINTS OF THE GRAPH\n   "
+                                                          "5) PRESS ESC TO FINISH\n   "
+                                                          "\n"
+                                                          "*** MOUSE RIGHT CLICK TO CORRECT WRONG ENTRY ***")
 
         while True:
 
@@ -86,11 +127,16 @@ class point2graph:
             cv2.setMouseCallback("image", draw_point)
             cv2.imshow("image", self.image)
 
-            
-            #if cv2.waitKey(1) &  0xFF == ord("q"):
-            k = cv2.waitKey(33)
-            if k==27:
+            if cv2.waitKey(33) == ord('i'):
 
+                self.ls_point = []
+                print "The list has been reinitialized"
+                self.image = cv2.imread(self.filename_init)
+                cv2.imshow("image", self.image)
+                self.delistance = False
+
+            k = cv2.waitKey(33)
+            if k == 27:
                 print "\nLa lista di punti e':\n", self.ls_point
                 tkMessageBox.showinfo("Message", "Now press Print Coordinate from File/Menu ")
                 break

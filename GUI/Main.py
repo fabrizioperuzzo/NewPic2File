@@ -7,8 +7,6 @@ import os
 import math
 
 
-
-
 ##########################################################
 #            RICHIAMO TUTTE LE DEF
 ##########################################################
@@ -18,6 +16,7 @@ def restart_program():
     saving data) must be done before calling this function."""
     python = sys.executable
     os.execl(python, python, * sys.argv)
+
 
 def read_label():
 
@@ -37,7 +36,7 @@ def read_label():
         x0_in = ls_label[4]
         y0_in = ls_label[5]
 
-    except:
+    except:  # se non trova il file con input .txt
 
         label_y_in = 'labely'
         unit_y_in = 'unity'
@@ -46,25 +45,27 @@ def read_label():
         x0_in = 0
         y0_in = 0
 
-
-    return label_y_in,unit_y_in,label_x_in,unit_x_in,x0_in,y0_in
+    return label_y_in, unit_y_in, label_x_in, unit_x_in, x0_in, y0_in
 ##########################################################
-def write_label(label_y,unit_y,label_x,unit_x,x0,y0):
 
-    ls_label_in=[]
-    ls_label_in.append(label_y+'\n')
-    ls_label_in.append(unit_y+'\n')
-    ls_label_in.append(label_x+'\n')
-    ls_label_in.append(unit_x+'\n')
-    ls_label_in.append(x0+'\n')
-    ls_label_in.append(y0+'\n')
-    
+
+def write_label(label_y, unit_y, label_x, unit_x, x0, y0):
+
+    ls_label_in = []
+    ls_label_in.append(label_y + '\n')
+    ls_label_in.append(unit_y + '\n')
+    ls_label_in.append(label_x + '\n')
+    ls_label_in.append(unit_x + '\n')
+    ls_label_in.append(x0 + '\n')
+    ls_label_in.append(y0 + '\n')
 
     f = open("SETTINGS\\label_input.txt", 'w')
 
     with f:
         ls_label = f.writelines(ls_label_in)
 ##########################################################
+
+
 def print_entry():
     ycoo = ent.get()
     xcoo = ent1.get()
@@ -73,26 +74,29 @@ def print_entry():
 
 ##########################################################
 
+
 def store_lbl_entry():
-    ls_lbl_out = [ent2.get(),ent4.get(),ent3.get(),ent5.get(),ent8.get(),ent7.get()]
-    write_label(ls_lbl_out[0],ls_lbl_out[1],ls_lbl_out[2],ls_lbl_out[3],ls_lbl_out[4],ls_lbl_out[5])
+    ls_lbl_out = [ent2.get(), ent4.get(), ent3.get(),
+                  ent5.get(), ent8.get(), ent7.get()]
+    write_label(ls_lbl_out[0], ls_lbl_out[1], ls_lbl_out[2],
+                ls_lbl_out[3], ls_lbl_out[4], ls_lbl_out[5])
 
     return ls_lbl_out
 
 
 ##########################################################
-def write_files(list1,list2, label1, label2, unit1, unit2):
+# scrivi file con coordinate FINALI SU CSV
+def write_files(list1, list2, label1, label2, unit1, unit2):
 
-    csv_name = "OUTPUT\\"+ent6.get()+".csv"
+    csv_name = "OUTPUT\\" + ent6.get() + ".csv"
 
     f = open(csv_name, 'w')
-    f.write(ent6.get()+ '\n')
-    f.write(label1+','+label2+'\n')
-    f.write(unit1 + ',' + unit2 + '\n')
+    f.write(ent6.get() + '\n')
+    f.write(label1 + ';' + label2 + '\n')
+    f.write(unit1 + ';' + unit2 + '\n')
 
-
-    for n in range(1,len(list1)):
-        str_append = str(list1[n-1])+','+str(list2[n-1])+'\n'
+    for n in range(1, (len(list1)+1)):
+        str_append = str(list1[n - 1]) + ';' + str(list2[n - 1]) + '\n'
         f.write(str_append)
     f.close()
 
@@ -100,10 +104,13 @@ def write_files(list1,list2, label1, label2, unit1, unit2):
 ##########################################################
 def coordinates():
 
+    # salva le entries in un file per averlo come input
+    # nella sessione successiva
     ls_lbl_in_f = store_lbl_entry()
 
-    cols=ist1.ls_point  #recupero le coord dalla classe creata (le prime 3 coo sono gli assi)
-    coo=cols[3:]        #dalla 3 coordinata in poi lista punti grafico
+    # recupero le coord dalla classe creata (le prime 3 coo sono gli assi)
+    cols = ist1.ls_point
+    coo = cols[3:]  # dalla 3 coordinata in poi lista punti grafico
 
     ckvY = chkValueY.get()
     ckvX = chkValueX.get()
@@ -111,23 +118,22 @@ def coordinates():
     try:
         if ckvY == True:
             ly1 = math.log10(float(ent.get()))
-            ly2 = math.log10(float(ent7.get()))# origin of Y axis
+            ly2 = math.log10(float(ent7.get()))  # origin of Y axis
         else:
-            ly1=float(ent.get())
-            ly2=float(ent7.get())  # origin of Y axis
+            ly1 = float(ent.get())
+            ly2 = float(ent7.get())  # origin of Y axis
 
         if ckvX == True:
             lx1 = math.log10(float(ent1.get()))
-            lx2 = math.log10(float(ent8.get()))# origin of Y axis
+            lx2 = math.log10(float(ent8.get()))  # origin of Y axis
         else:
-            lx1=float(ent1.get())
-            lx2=float(ent8.get())  # origin of X axis
+            lx1 = float(ent1.get())
+            lx2 = float(ent8.get())  # origin of X axis
     except:
         tkMessageBox.showerror("Error", "Errore formato")
 
-
-    Lyt = ly1- ly2
-    Lxt = lx1-lx2
+    Lyt = ly1 - ly2
+    Lxt = lx1 - lx2
 
     xcoo = []
     ycoo = []
@@ -142,24 +148,24 @@ def coordinates():
     Lx1 = cols[2][0] - cols[0][0]
     Ly1 = cols[1][1] - cols[0][1]
 
-    print 'Lx1 is:',Lx1
+    print 'Lx1 is:', Lx1
     print 'Lx is:', Lx
 
     if abs(Lx1) > abs(Lx) and abs(Ly1) > abs(Ly):
         Lx = Lx1
         Ly = Ly1
 
-    print 'Lx is:',Lx
+    print 'Lx is:', Lx
     print 'Ly is:', Ly
-    print 'Lyt is:',Lyt
-    print 'Lxt is:',Lxt
-    print 'ly1 is:',ly1
-    print 'lx1 is:',lx1
-    print 'chkvaluey is:',ckvY
-    print 'chkvaluex is:',ckvX
+    print 'Lyt is:', Lyt
+    print 'Lxt is:', Lxt
+    print 'ly1 is:', ly1
+    print 'lx1 is:', lx1
+    print 'chkvaluey is:', ckvY
+    print 'chkvaluex is:', ckvX
 
-    fattconvy = Lyt/Ly
-    fattconvx = Lxt/Lx
+    fattconvy = Lyt / Ly
+    fattconvx = Lxt / Lx
 
     print Lx
     print Ly
@@ -169,70 +175,116 @@ def coordinates():
 
     for i in xcoo:
         if ckvX == True:
-            xcoot.append(math.pow(10,(i*fattconvx+lx2)))
+            xcoot.append(math.pow(10, (i * fattconvx + lx2)))
         else:
-            xcoot.append(i*fattconvx+lx2)
+            xcoot.append(i * fattconvx + lx2)
 
     for i in ycoo:
         if ckvY == True:
-            ycoot.append(math.pow(10,(i*fattconvy+ly2)))
+            ycoot.append(math.pow(10, (i * fattconvy + ly2)))
         else:
-            ycoot.append(i*fattconvy+ly2)
+            ycoot.append(i * fattconvy + ly2)
 
-    if ckvY==True:
+    if ckvY == True:
         print 'Y coo: ', ['%.2E' % x for x in ycoot]
     else:
         print 'Y coo: ', ycoot
 
-    if ckvX==True:
+    if ckvX == True:
         print 'X coo:', ['%.2E' % x for x in xcoot]
     else:
         print 'X coo: ', xcoot
 
-    write_files(ycoot, xcoot, ls_lbl_in_f[0], ls_lbl_in_f[2],ls_lbl_in_f[1],ls_lbl_in_f[3])
+    write_files(
+        ycoot, xcoot, ls_lbl_in_f[0], ls_lbl_in_f[2], ls_lbl_in_f[1], ls_lbl_in_f[3])
 
     return ycoot, xcoot
 
 
+##########################################################################
+def resize_cmd_win():
+
+    from ctypes import windll, create_string_buffer
+
+    # stdin handle is -10
+    # stdout handle is -11
+    # stderr handle is -12
+
+    h = windll.kernel32.GetStdHandle(-12)
+    csbi = create_string_buffer(22)
+    res = windll.kernel32.GetConsoleScreenBufferInfo(h, csbi)
+
+    if res:
+        import struct
+        (bufx, bufy, curx, cury, wattr,
+         left, top, right, bottom, maxx, maxy) = struct.unpack("hhhhHhhhhhh", csbi.raw)
+        sizex = right - left + 1
+        sizey = bottom - top + 1
+    else:
+        sizex, sizey = 80, 25  # can't determine actual size - return default values
+
+    print sizex, sizey
+    os.system('mode con: cols=100 lines=10')
 
 
+##########################################################################
+def resize_cmd_win_small():
 
+    from ctypes import windll, create_string_buffer
 
+    # stdin handle is -10
+    # stdout handle is -11
+    # stderr handle is -12
 
+    h = windll.kernel32.GetStdHandle(-12)
+    csbi = create_string_buffer(22)
+    res = windll.kernel32.GetConsoleScreenBufferInfo(h, csbi)
 
+    if res:
+        import struct
+        (bufx, bufy, curx, cury, wattr,
+         left, top, right, bottom, maxx, maxy) = struct.unpack("hhhhHhhhhhh", csbi.raw)
+        sizex = right - left + 1
+        sizey = bottom - top + 1
+    else:
+        sizex, sizey = 80, 25  # can't determine actual size - return default values
 
-
-
-
-
-
+    print sizex, sizey
+    os.system('mode con: cols=50 lines=5')
 
 
 #############################################################
 #               INIZIO             CODICE
 #############################################################
 
-#tk= tkinter is the module
-#Tk is the class inside tkinter you dont need arguments
+# tk= tkinter is the module
+# Tk is the class inside tkinter you dont need arguments
+
+
+resize_cmd_win_small()
 
 root = tk.Tk()
 
 root.title("   Geodata Point2Graph  ")
 screenwidth = root.winfo_screenwidth()
-winwidth=500
-winheight=750
+winwidth = 500
+winheight = 750
 distance = screenwidth - winwidth
-root.geometry(str(winwidth)+'x'+str(winheight)+'+'+str(distance)+'+100') # porta al di sotto dell'angolo di 100 pixel
+# porta al di sotto dell'angolo di 100 pixel
+root.geometry(str(winwidth) + 'x' + str(winheight) +
+              '+' + str(distance) + '+100')
 
 curr_dir = os.path.dirname(__file__)
+
 img_path = curr_dir + "/image/gd_small.gif"
+
 photo = tk.PhotoImage(file=img_path)
-root.tk.call("wm","iconphoto", root._w, photo)
+root.tk.call("wm", "iconphoto", root._w, photo)
 
 w = tk.Label(root, text="Fill the form below")
 w1 = tk.Label(root, text="Select options from file/menu")
-w2 = tk.Label(root, text="Follow each step")
-w3 = tk.Label(root, text="Grab your data")
+w2 = tk.Label(root, text="Follow steps from 1 to 3")
+w3 = tk.Label(root, text="Grab csv data in OUT folder")
 w4 = tk.Label(root, text="              ")
 
 w.pack()
@@ -241,7 +293,7 @@ w2.pack()
 w3.pack()
 w4.pack()
 
-###########################################   ENTRY LABEL
+# ENTRY LABEL
 
 ls_lbl_in = read_label()
 
@@ -250,7 +302,7 @@ lab6.pack()
 ent6 = tk.Entry(root)
 ent6.pack()
 
-################################### YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+# YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 
 lab = tk.Label(root, text="Inserire coordinata Y")
 lab.pack()
@@ -259,7 +311,7 @@ ent.pack()
 
 chkValueY = tk.BooleanVar()
 #chkValueY = False
-chb1 = tk.Checkbutton(root, text="Log scale",variable=chkValueY)
+chb1 = tk.Checkbutton(root, text="Log scale", variable=chkValueY)
 chb1.pack()
 
 
@@ -281,7 +333,7 @@ ent4 = tk.Entry(root)
 ent4.insert(0, ls_lbl_in[1])
 ent4.pack()
 
-######################################## XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 lab1 = tk.Label(root, text="Inserire coordinata X")
 lab1.pack()
@@ -290,7 +342,7 @@ ent1.pack()
 
 chkValueX = tk.BooleanVar()
 #chkValueX = False
-chb2 = tk.Checkbutton(root, text="Log scale",var=chkValueX)
+chb2 = tk.Checkbutton(root, text="Log scale", var=chkValueX)
 chb2.pack()
 
 lab8 = tk.Label(root, text="Inserire origine X")
@@ -311,39 +363,46 @@ ent5 = tk.Entry(root)
 ent5.insert(0, ls_lbl_in[3])
 ent5.pack()
 
-tk.Button(root, text="Restart", command=restart_program).pack()
-
+ent9 = tk.Entry(root)
+ent9.insert(0, 'Here the Python output are shown')
+ent9.pack()
 
 w5 = tk.Label(root,
               justify=tk.LEFT,
-              padx = 10,
+              padx=10,
               text="Fabrizio Peruzzo 2019 Geodata S.p.a").pack(side="left")
 
-#####################################################   FUNZIONI OPENCV  DALLA CLASSE
+# FUNZIONI OPENCV  DALLA CLASSE
 
 ########################################
 ist1 = point2graph()
 ############Menu########################
 
 menubar = tk.Menu(root)
-filemenu = tk.Menu(menubar, tearoff = 1)
-menubar.add_cascade(label="File",  menu = filemenu)
+filemenu = tk.Menu(menubar, tearoff=1)
+menubar.add_cascade(label="File",  menu=filemenu)
 
-filemenu.add_cascade(label="0) Print_Screen", command = lambda : ist1.print_screen())
-filemenu.add_cascade(label="1) Crop_Image", command = lambda : ist1.crop_image())
-filemenu.add_cascade(label="2) Pic_Orig_X_Y_Points", command = lambda : ist1.get_point())
+filemenu.add_cascade(label="0) Print_Screen",
+                     command=lambda: ist1.print_screen())
+filemenu.add_cascade(label="1) Crop_Image", command=lambda: ist1.crop_image())
+filemenu.add_cascade(label="2) Pic_Orig_X_Y_Points",
+                     command=lambda: ist1.get_point())
 entry = print_entry
-filemenu.add_cascade(label="3) Print_Entry", command = lambda : entry())
-filemenu.add_cascade(label="4) Print_Coordinate", command = lambda : coordinates()) # in automatico scrive il file
+#filemenu.add_cascade(label="3) Print_Entry", command=lambda: entry()) donna inutile
+filemenu.add_cascade(label="3) Print_Coordinate",
+                     command=lambda: coordinates())  # in automatico scrive il file
 
 filemenu.add_separator()
-filemenu.add_cascade(label="Exit", command = root.destroy)
+filemenu.add_cascade(label=" Resize_cmd_window_BIG",
+                     command=lambda: resize_cmd_win())  # in automatico scrive il file
+filemenu.add_cascade(label=" Resize_cmd_window_SMALL",
+                     command=lambda: resize_cmd_win_small())  # in automatico scrive il file
+
+filemenu.add_separator()
+filemenu.add_cascade(label="Reset Data", command=lambda: ist1.reinitialize())
+#filemenu.add_cascade(label="Restart", command=lambda: restart_program()) non funziona bene quando vado a riprendere i punti
+filemenu.add_cascade(label="Exit", command=root.destroy)
+
 root.config(menu=menubar)
 
-
-
-
-
 root.mainloop()
-
-
