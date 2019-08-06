@@ -9,6 +9,8 @@ import math
 
 
 
+
+
 # FUNZIONI OPENCV  DALLA CLASSE
 #############################################################################
 ist1 = point2graph()    #######    INITIALIZE THE CLASS -_> ISTANCE   #######
@@ -298,31 +300,22 @@ resize_cmd_win_small()
 
 root = tk.Tk()
 
+
+
+
+
+
 ########      TOP FRAME   ######################################################
 
-topframe = tk.Frame(root, bg="blue")
-topframe.pack()
 
-
-button1 = tk.Button(topframe, text=" ST 1 PRINT SCR ", fg="red", command=lambda: ist1.print_screen())
-button2 = tk.Button(topframe, text=" ST 2 CROP ", fg="blue", command=lambda: ist1.crop_image())
-button3 = tk.Button(topframe, text=" ST 3 SELECT ", fg="green", command=lambda: ist1.get_point())
-button4 = tk.Button(topframe, text=" ST 4 PRINT COORD ", fg="purple", command=lambda: coordinates())
-
-button1.pack(side='left', padx=4, pady=2)
-button2.pack(side='left', padx=4, pady=2)
-button3.pack(side='left', padx=4, pady=2)
-button4.pack(side='left', padx=4, pady=2)
-
-topframe.pack(side="top", fill="x")
 
 
 
 root.title("   Geodata Point2Graph  ")
 screenwidth = root.winfo_screenwidth()
-winwidth = 500
-winheight = 750
-distance = screenwidth - winwidth
+winwidth = 400
+winheight = 600
+distance = screenwidth - winwidth -20
 # porta al di sotto dell'angolo di 100 pixel
 root.geometry(str(winwidth) + 'x' + str(winheight) +
               '+' + str(distance) + '+100')
@@ -333,6 +326,33 @@ img_path = curr_dir + "/image/gd_small.gif"
 
 photo = tk.PhotoImage(file=img_path)
 root.tk.call("wm", "iconphoto", root._w, photo)
+
+
+
+
+
+
+
+topframe = tk.Frame(root, bg="blue")
+topframe.pack()
+
+button1 = tk.Button(topframe, text="1 PRNT SCR", fg="black", command=lambda: ist1.print_screen())
+button2 = tk.Button(topframe, text="2 CROP IMG", fg="black", command=lambda: ist1.crop_image())
+button3 = tk.Button(topframe, text="3 PIC PNT", fg="black", command=lambda: ist1.get_point())
+button4 = tk.Button(topframe, text="4 PRNT COOR", fg="black", command=lambda: coordinates())
+
+button1.pack(side='left', padx=4, pady=2)
+button2.pack(side='left', padx=4, pady=2)
+button3.pack(side='left', padx=4, pady=2)
+button4.pack(side='left', padx=4, pady=2)
+
+topframe.pack(side="top", fill="x")
+
+
+
+
+
+
 
 w = tk.Label(root, text="Fill the form below")
 #w1 = tk.Label(root, text="Select options from file/menu ")
@@ -357,6 +377,32 @@ ent6.pack()
 
 
 
+
+
+
+
+
+
+
+
+#############        BOTTOM    FRAME      ********************************
+####            to be inserted before every other things
+####   il primo che indico come bottom ha la precedenza sugli altri
+
+bottomframe = tk.Frame(root)
+
+
+# ent9 = tk.Entry(bottomframe)
+# ent9.insert(0, 'Here the Python output are shown')
+# ent9.pack()
+
+
+w5 = tk.Label(bottomframe,
+              justify=tk.LEFT,
+              padx=10,
+              text="Fabrizio Peruzzo 2019 Geodata S.p.a").pack(side="left")
+
+bottomframe.pack(side="bottom", padx = 5 )
 
 
 
@@ -418,9 +464,9 @@ leftframe.pack(side="left", padx = 5)
 rightframe = tk.Frame(root)
 
 lab1 = tk.Label(rightframe, text="Inserire coordinata X")
-lab1.pack()
+lab1.pack(padx=5)
 ent1 = tk.Entry(rightframe)
-ent1.pack()
+ent1.pack(padx=5)
 
 chkValueX = tk.BooleanVar()
 #chkValueX = False
@@ -434,16 +480,16 @@ ent8.insert(0, ls_lbl_in[4])
 ent8.pack()
 
 lab3 = tk.Label(rightframe, text="Inserire label X")
-lab3.pack()
+lab3.pack(padx=5)
 ent3 = tk.Entry(rightframe)
 ent3.insert(0, ls_lbl_in[2])
-ent3.pack()
+ent3.pack(padx=5)
 
 lab5 = tk.Label(rightframe, text="Inserire unita di misura X")
-lab5.pack()
+lab5.pack(padx=5)
 ent5 = tk.Entry(rightframe)
 ent5.insert(0, ls_lbl_in[3])
-ent5.pack()
+ent5.pack(padx=5)
 
 rightframe.pack(side="right")
 
@@ -456,24 +502,7 @@ rightframe.pack(side="right")
 
 
 
-#############        BOTTOM    FRAME      ********************************
 
-bottomframe = tk.Frame(root)
-
-
-ent9 = tk.Entry(bottomframe)
-ent9.insert(0, 'Here the Python output are shown')
-ent9.pack()
-
-
-w5 = tk.Label(bottomframe,
-              justify=tk.LEFT,
-              padx=10,
-              text="Fabrizio Peruzzo 2019 Geodata S.p.a").pack(side="left")
-
-
-
-bottomframe.pack(side="bottom", padx = 5 )
 
 
 

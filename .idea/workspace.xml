@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="261dd103-fa53-453a-b326-38038c4b1406" name="Default Changelist" comment="Print Log scale in scinetific form&#10;Reset option&#10;Right button to delete last&#10;Resize command window option">
+    <list default="true" id="261dd103-fa53-453a-b326-38038c4b1406" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/GUI/function.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/image/gd_ico.gif" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/image/OLD/gd_ico.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/image/gd_small.gif" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/image/gd_small.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/image/geodata.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/image/OLD/geodata.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/image/geodata_small.png" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/image/OLD/geodata_small.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/image/old_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/OLD/old_code.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,28 +19,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/class_point2graph.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="121" column="80" selection-start-line="121" selection-start-column="80" selection-end-line="121" selection-end-column="80" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="274" column="53" lean-forward="true" selection-start-line="274" selection-start-column="53" selection-end-line="274" selection-end-column="53" />
+            <state relative-caret-position="339">
+              <caret line="329" lean-forward="true" selection-start-line="329" selection-end-line="329" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/image/gd_small.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/image/OLD/init_image.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/image/temp_image.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/image/screenshot.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/image/printscreen.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/OLD/old_code.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/image/geodata.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/image/OLD/geodata.PNG">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GUI/image/OLD/geodata_small.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -99,15 +138,18 @@
         <option value="$PROJECT_DIR$/venv/Scripts/class_point2graph.py" />
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/GUI/class_point2graph.py" />
+        <option value="$PROJECT_DIR$/GUI/SETTINGS/functions.py" />
+        <option value="$PROJECT_DIR$/GUI/main_def.py" />
+        <option value="$PROJECT_DIR$/GUI/provaframe.py" />
+        <option value="$PROJECT_DIR$/GUI/function.py" />
         <option value="$PROJECT_DIR$/GUI/Main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="727" />
-    <option name="y" value="152" />
-    <option name="width" value="628" />
-    <option name="height" value="667" />
+    <option name="x" value="-8" />
+    <option name="width" value="1133" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -127,6 +169,12 @@
               <item name="NewPic2File" type="462c0819:PsiDirectoryNode" />
               <item name="GUI" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="NewPic2File" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewPic2File" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -140,12 +188,14 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\fpe\PycharmProjects\NewPic2File\venv\GUI\BIN" />
-      <recent name="C:\Users\fpe\PycharmProjects\NewPic2File\venv\GUI\SETTINGS" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\fpe\PycharmProjects\NewPic2File\venv\GUI" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\fpe\PycharmProjects\NewPic2File\GUI\image\OLD" />
+      <recent name="C:\Users\fpe\PycharmProjects\NewPic2File\GUI\OLD" />
+      <recent name="C:\Users\fpe\PycharmProjects\NewPic2File\venv\GUI\BIN" />
+      <recent name="C:\Users\fpe\PycharmProjects\NewPic2File\venv\GUI\SETTINGS" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -203,27 +253,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="cmd_shell (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="NewPic2File" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/Scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/Scripts/cmd_shell.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="cmd_shell2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="NewPic2File" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -266,13 +295,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="provaframe" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="NewPic2File" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/provaframe.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Main (1)" />
+        <item itemvalue="Python.provaframe" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.cmd_shell2 (1)" />
         <item itemvalue="Python.cmd_shell2" />
-        <item itemvalue="Python.cmd_shell (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -357,11 +407,25 @@
       <option name="project" value="LOCAL" />
       <updated>1564768158512</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Changed order csv X,Y">
+      <created>1564771189772</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1564771189772</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Grafica interface ameliored added button">
+      <created>1564775830717</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1564775830717</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19484809" />
@@ -369,34 +433,34 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.58256274" visible="true" weight="0.2291372" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.58256274" visible="true" weight="0.41018388" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4993395" weight="0.32956153" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49867898" weight="0.24611032" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.41743726" side_tool="true" visible="true" weight="0.2291372" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.41743726" side_tool="true" weight="0.41018388" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4980185" weight="0.26732674" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24504623" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19484809" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3847242" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.58256274" visible="true" weight="0.41018388" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4993395" weight="0.32956153" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4993395" weight="0.24611032" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5006605" side_tool="true" visible="true" weight="0.26732674" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4993395" visible="true" weight="0.26732674" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49867898" weight="0.24611032" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.41743726" side_tool="true" visible="true" weight="0.41018388" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4980185" weight="0.26732674" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -463,10 +527,11 @@
     <MESSAGE value="Logscale choice added mod1" />
     <MESSAGE value="Logscale calculation added and checked" />
     <MESSAGE value="Print Log scale in scinetific form&#10;Reset option&#10;Right button to delete last&#10;Resize command window option" />
-    <option name="LAST_COMMIT_MESSAGE" value="Print Log scale in scinetific form&#10;Reset option&#10;Right button to delete last&#10;Resize command window option" />
+    <MESSAGE value="Changed order csv X,Y" />
+    <MESSAGE value="Grafica interface ameliored added button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grafica interface ameliored added button" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/GUI/image/old_code.py" />
     <entry file="file://$PROJECT_DIR$/venv/GUI/image/geodata.PNG" />
     <entry file="file://$PROJECT_DIR$/venv/GUI/image/printscreen.png" />
     <entry file="file://$PROJECT_DIR$/venv/GUI/image/screenshot.png" />
@@ -565,6 +630,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/SETTINGS/functions.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/class_point2graph.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -575,10 +643,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/provaframe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/main_def.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/function.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/OLD/gd_ico.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/geodata.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/OLD/geodata.PNG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/OLD/geodata_small.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/OLD/init_image.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/temp_image.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/screenshot.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/printscreen.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/OLD/old_code.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/gd_small.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="274" column="53" lean-forward="true" selection-start-line="274" selection-start-column="53" selection-end-line="274" selection-end-column="53" />
+        <state relative-caret-position="339">
+          <caret line="329" lean-forward="true" selection-start-line="329" selection-end-line="329" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
