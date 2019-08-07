@@ -4,11 +4,20 @@ import tkMessageBox
 import sys
 import os
 import math
+
+import matplotlib
+matplotlib.use("TkAgg")
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+from matplotlib.figure import Figure
+#import matplotlib.animation as animation
+from matplotlib import style
+
+
+
+
+
+
 #from main_def import *
-
-
-
-
 
 
 # FUNZIONI OPENCV  DALLA CLASSE
@@ -211,7 +220,7 @@ def coordinates():
     write_files(
         ycoot, xcoot, ls_lbl_in_f[0], ls_lbl_in_f[2], ls_lbl_in_f[1], ls_lbl_in_f[3])
 
-    return ycoot, xcoot
+    return xcoot, ycoot
 
 
 ##########################################################################
@@ -529,6 +538,9 @@ entry = print_entry
 #filemenu.add_cascade(label="3) Print_Entry", command=lambda: entry()) donna inutile
 filemenu.add_cascade(label="4) Print_Coordinate", command=lambda: coordinates())  # in automatico scrive il file
 
+filemenu.add_cascade(label="5) Show Graph", command=lambda : open_new_window())
+
+
 filemenu.add_separator()
 filemenu.add_cascade(label=" Resize_cmd_window_BIG",
                      command=lambda: resize_cmd_win())  # in automatico scrive il file
@@ -542,6 +554,31 @@ filemenu.add_cascade(label="Exit", command=root.destroy)
 
 root.config(menu=menubar)
 
+
+def open_new_window():
+    window = tk.Toplevel(root)
+    window.attributes("-topmost", True)
+    window.title("Graph")
+    window.geometry("480x280")
+    window.tk.call("wm", "iconphoto", window._w, photo)
+
+    f = Figure(figsize=(10,6), dpi=100)
+    a = f.add_subplot(111)
+
+    csv_name = "OUTPUT\\" + ent6.get() + ".csv"
+    pullData = open(csv_name,"r").read()
+    dataList = pullData.split('\n')
+    xList, yLIst = coordinates()
+
+    a.plot(xList,yLIst)
+
+    canvas = FigureCanvasTkAgg(f, window)
+    canvas.draw()
+    canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+
+    toolbar = NavigationToolbar2Tk(canvas, window)
+    toolbar.update()
+    canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
 
 
