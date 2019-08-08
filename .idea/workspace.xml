@@ -4,8 +4,10 @@
     <list default="true" id="261dd103-fa53-453a-b326-38038c4b1406" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/OUTPUT/Ramal_Technico.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/OUTPUT/Tramo_3.2.3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/OUTPUT/file1.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/SETTINGS/label_input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/SETTINGS/label_input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/image/screenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/image/screenshot.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,18 +20,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="580" column="67" selection-start-line="580" selection-start-column="67" selection-end-line="580" selection-end-column="67" />
+            <state relative-caret-position="137">
+              <caret line="567" column="22" selection-start-line="567" selection-start-column="22" selection-end-line="567" selection-end-column="22" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/image/OLD/init_image.png">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -103,10 +100,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -114,7 +111,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,6 +133,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -385,26 +382,33 @@
       <option name="project" value="LOCAL" />
       <updated>1565091619073</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added output window with graph">
+      <created>1565217640151</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1565217640151</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="0" width="783" height="832" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49516907" weight="0.45904887" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49516907" visible="true" weight="0.45783132" />
       <window_info id="Structure" order="1" sideWeight="0.5048309" side_tool="true" weight="0.45904887" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.57926023" visible="true" weight="0.41442716" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.832664" visible="true" weight="0.4136947" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4993395" weight="0.32956153" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49867898" weight="0.24611032" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.42073977" side_tool="true" visible="true" weight="0.41442716" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.16733602" side_tool="true" visible="true" weight="0.4136947" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4980185" weight="0.26732674" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -493,14 +497,10 @@
     <MESSAGE value="Print Log scale in scinetific form&#10;Reset option&#10;Right button to delete last&#10;Resize command window option" />
     <MESSAGE value="Changed order csv X,Y" />
     <MESSAGE value="Grafica interface ameliored added button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grafica interface ameliored added button" />
+    <MESSAGE value="Added output window with graph" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added output window with graph" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/GUI/image/printscreen.png" />
-    <entry file="file://$PROJECT_DIR$/venv/GUI/image/screenshot.png" />
-    <entry file="file://$PROJECT_DIR$/venv/GUI/BIN/prova.py" />
-    <entry file="file://$PROJECT_DIR$/venv/GUI/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/venv/GUI/OUTPUT/coo.txt" />
     <entry file="file://$PROJECT_DIR$/venv/GUI/OUTPUT/list_coo.txt" />
     <entry file="file://$PROJECT_DIR$/venv/GUI/OUTPUT/label_input_.txt" />
     <entry file="file://$PROJECT_DIR$/venv/GUI/BIN/_prova_calc.py" />
@@ -607,23 +607,8 @@
     <entry file="file://$PROJECT_DIR$/GUI/image/OLD/gd_ico.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/image/gd_small.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/image/temp_image.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/image/screenshot.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/image/printscreen.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/OLD/old_code.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/image/geodata.gif">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/image/OLD/geodata.PNG">
       <provider selected="true" editor-type-id="images" />
@@ -635,10 +620,40 @@
     <entry file="file://$PROJECT_DIR$/GUI/image/OLD/init_image.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/init_image.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/aaaaaaaaa.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/provacoodivzero.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/rrrrrrrrrrrr1.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/vvvvvvvvvvvvvvvvv.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/gd_small.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/geodata.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/printscreen.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/screenshot.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/image/temp_image.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="580" column="67" selection-start-line="580" selection-start-column="67" selection-end-line="580" selection-end-column="67" />
+        <state relative-caret-position="137">
+          <caret line="567" column="22" selection-start-line="567" selection-start-column="22" selection-end-line="567" selection-end-column="22" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>

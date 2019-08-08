@@ -13,7 +13,8 @@ from matplotlib.figure import Figure
 from matplotlib import style
 
 
-
+LARGE_FONT = ("Verdana", 12)
+style.use("ggplot")
 
 
 
@@ -559,16 +560,20 @@ def open_new_window():
     window = tk.Toplevel(root)
     window.attributes("-topmost", True)
     window.title("Graph")
-    window.geometry("480x280")
+    window.geometry("480x480")
     window.tk.call("wm", "iconphoto", window._w, photo)
 
     f = Figure(figsize=(10,6), dpi=100)
     a = f.add_subplot(111)
+    a.set_xscale("log")
+    a.set_yscale("log")
 
     csv_name = "OUTPUT\\" + ent6.get() + ".csv"
     pullData = open(csv_name,"r").read()
     dataList = pullData.split('\n')
     xList, yLIst = coordinates()
+
+
 
     a.plot(xList,yLIst)
 
