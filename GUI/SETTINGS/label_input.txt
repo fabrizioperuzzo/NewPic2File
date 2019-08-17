@@ -1,6 +1,8 @@
-labelY
-m
+labely
+unity
 labelx
-m
-100
-100
+unitx
+0
+0.1
+10
+1000

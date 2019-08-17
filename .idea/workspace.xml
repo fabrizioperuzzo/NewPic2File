@@ -4,10 +4,8 @@
     <list default="true" id="261dd103-fa53-453a-b326-38038c4b1406" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/OUTPUT/Ramal_Technico.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/OUTPUT/Tramo_3.2.3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/OUTPUT/file1.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/SETTINGS/label_input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/SETTINGS/label_input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/image/screenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/image/screenshot.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="567" column="22" selection-start-line="567" selection-start-column="22" selection-end-line="567" selection-end-column="22" />
+            <state relative-caret-position="113">
+              <caret line="140" column="18" lean-forward="true" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="18" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -48,6 +46,15 @@
       <find>ent7</find>
       <find>restart_program</find>
       <find>open_new</find>
+      <find>ent1.get()</find>
+      <find>coomaxX</find>
+      <find>write</find>
+      <find>write_files</find>
+      <find>write_label</find>
+      <find>ls_lbl_in_f</find>
+      <find>store_lbl_entry</find>
+      <find>chkValueY</find>
+      <find>coordinates</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -100,10 +107,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
-    <option name="width" value="979" />
-    <option name="height" value="1040" />
+    <option name="y" value="-9" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -128,6 +136,12 @@
               <item name="NewPic2File" type="462c0819:PsiDirectoryNode" />
               <item name="GUI" type="462c0819:PsiDirectoryNode" />
               <item name="image" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NewPic2File" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NewPic2File" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
+              <item name="SETTINGS" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -389,26 +403,33 @@
       <option name="project" value="LOCAL" />
       <updated>1565217640151</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added output window with graph logarightmic">
+      <created>1565249782739</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1565249782739</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="783" height="832" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49516907" visible="true" weight="0.45783132" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49516907" weight="0.45772788" />
       <window_info id="Structure" order="1" sideWeight="0.5048309" side_tool="true" weight="0.45904887" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.832664" visible="true" weight="0.4136947" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.831572" visible="true" weight="0.40876946" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4993395" weight="0.32956153" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49867898" weight="0.24611032" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.16733602" side_tool="true" visible="true" weight="0.4136947" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.168428" side_tool="true" visible="true" weight="0.40876946" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4980185" weight="0.26732674" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -498,10 +519,10 @@
     <MESSAGE value="Changed order csv X,Y" />
     <MESSAGE value="Grafica interface ameliored added button" />
     <MESSAGE value="Added output window with graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added output window with graph" />
+    <MESSAGE value="Added output window with graph logarightmic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added output window with graph logarightmic" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/GUI/OUTPUT/list_coo.txt" />
     <entry file="file://$PROJECT_DIR$/venv/GUI/OUTPUT/label_input_.txt" />
     <entry file="file://$PROJECT_DIR$/venv/GUI/BIN/_prova_calc.py" />
     <entry file="file://$PROJECT_DIR$/venv/GUI/OUTPUT/coo.csv" />
@@ -623,18 +644,10 @@
     <entry file="file://$PROJECT_DIR$/GUI/image/init_image.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/aaaaaaaaa.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/provacoodivzero.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/rrrrrrrrrrrr1.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/vvvvvvvvvvvvvvvvv.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/aaaaaaaaa.csv" />
+    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/provacoodivzero.csv" />
+    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/rrrrrrrrrrrr1.csv" />
+    <entry file="file://$PROJECT_DIR$/GUI/OUTPUT/vvvvvvvvvvvvvvvvv.csv" />
     <entry file="file://$PROJECT_DIR$/GUI/image/gd_small.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -650,10 +663,13 @@
     <entry file="file://$PROJECT_DIR$/GUI/image/temp_image.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/SETTINGS/label_input.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="567" column="22" selection-start-line="567" selection-start-column="22" selection-end-line="567" selection-end-column="22" />
+        <state relative-caret-position="113">
+          <caret line="140" column="18" lean-forward="true" selection-start-line="140" selection-start-column="18" selection-end-line="140" selection-end-column="18" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>

@@ -11,6 +11,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 from matplotlib.figure import Figure
 #import matplotlib.animation as animation
 from matplotlib import style
+import matplotlib.pyplot as plt
 
 
 LARGE_FONT = ("Verdana", 12)
@@ -58,6 +59,8 @@ def read_label():
         unit_x_in = ls_label[3]
         x0_in = ls_label[4]
         y0_in = ls_label[5]
+        coomaxX = ls_label[6]
+        coomaxY = ls_label[7]
 
     except:  # se non trova il file con input .txt
 
@@ -67,12 +70,14 @@ def read_label():
         unit_x_in = 'unitx'
         x0_in = 0
         y0_in = 0
+        coomaxX = 10   # coord max X
+        coomaxY = 10   # coord max Y
 
-    return label_y_in, unit_y_in, label_x_in, unit_x_in, x0_in, y0_in
+    return label_y_in, unit_y_in, label_x_in, unit_x_in, x0_in, y0_in, coomaxX, coomaxY
 ##########################################################
 
 
-def write_label(label_y, unit_y, label_x, unit_x, x0, y0):
+def write_label(label_y, unit_y, label_x, unit_x, x0, y0, coomaxX, coomaxY):
 
     ls_label_in = []
     ls_label_in.append(label_y + '\n')
@@ -81,6 +86,8 @@ def write_label(label_y, unit_y, label_x, unit_x, x0, y0):
     ls_label_in.append(unit_x + '\n')
     ls_label_in.append(x0 + '\n')
     ls_label_in.append(y0 + '\n')
+    ls_label_in.append(coomaxX + '\n')
+    ls_label_in.append(coomaxY + '\n')
 
     f = open("SETTINGS\\label_input.txt", 'w')
 
@@ -100,9 +107,9 @@ def print_entry():
 
 def store_lbl_entry():
     ls_lbl_out = [ent2.get(), ent4.get(), ent3.get(),
-                  ent5.get(), ent8.get(), ent7.get()]
+                  ent5.get(), ent8.get(), ent7.get(), ent1.get(), ent.get()]
     write_label(ls_lbl_out[0], ls_lbl_out[1], ls_lbl_out[2],
-                ls_lbl_out[3], ls_lbl_out[4], ls_lbl_out[5])
+                ls_lbl_out[3], ls_lbl_out[4], ls_lbl_out[5], ls_lbl_out[6], ls_lbl_out[7])
 
     return ls_lbl_out
 
@@ -118,6 +125,7 @@ def write_files(list1, list2, label1, label2, unit1, unit2):
     f.write(label1 + ';' + label2 + '\n')
     f.write(unit1 + ';' + unit2 + '\n')
 
+
     for n in range(1, (len(list1)+1)):
         str_append = str(list2[n - 1]) + ';' + str(list1[n - 1]) + '\n'
         f.write(str_append)
@@ -125,6 +133,11 @@ def write_files(list1, list2, label1, label2, unit1, unit2):
 
 
 ##########################################################
+
+def cooandgraph():
+    coordinates()
+    open_new_window()
+
 def coordinates():
 
     # salva le entries in un file per averlo come input
@@ -138,19 +151,22 @@ def coordinates():
     ckvY = chkValueY.get()
     ckvX = chkValueX.get()
 
+    coomaxX = ent1.get()
+    coomaxY = ent.get()
+
     try:
         if ckvY == True:
-            ly1 = math.log10(float(ent.get()))
+            ly1 = math.log10(float(coomaxY))   # coo max Y
             ly2 = math.log10(float(ent7.get()))  # origin of Y axis
         else:
-            ly1 = float(ent.get())
+            ly1 = float(coomaxY)   # coo max Y
             ly2 = float(ent7.get())  # origin of Y axis
 
         if ckvX == True:
-            lx1 = math.log10(float(ent1.get()))
+            lx1 = math.log10(coomaxX)            # coo max Y
             lx2 = math.log10(float(ent8.get()))  # origin of Y axis
         else:
-            lx1 = float(ent1.get())
+            lx1 = float(coomaxX)  # coo max X
             lx2 = float(ent8.get())  # origin of X axis
     except:
         tkMessageBox.showerror("Error", "Errore formato")
@@ -349,7 +365,7 @@ topframe.pack()
 button1 = tk.Button(topframe, text="1 PRNT SCR", fg="black", command=lambda: ist1.print_screen())
 button2 = tk.Button(topframe, text="2 CROP IMG", fg="black", command=lambda: ist1.crop_image())
 button3 = tk.Button(topframe, text="3 PIC PNT", fg="black", command=lambda: ist1.get_point())
-button4 = tk.Button(topframe, text="4 PRNT COOR", fg="black", command=lambda: coordinates())
+button4 = tk.Button(topframe, text="4 PRNT COOR", fg="black", command=lambda: cooandgraph())
 
 button1.pack(side='left', padx=4, pady=2)
 button2.pack(side='left', padx=4, pady=2)
@@ -426,6 +442,7 @@ leftframe = tk.Frame(root)
 lab = tk.Label(leftframe, text="Inserire coordinata Y")
 lab.pack()
 ent = tk.Entry(leftframe)
+ent.insert(0, ls_lbl_in[7])
 ent.pack()
 
 chkValueY = tk.BooleanVar()
@@ -454,7 +471,7 @@ ent4.pack()
 
 
 
-leftframe.pack(side="left", padx = 5)
+leftframe.pack(side="left", fill="x", pady=10, padx=10)
 
 
 
@@ -476,6 +493,7 @@ rightframe = tk.Frame(root)
 lab1 = tk.Label(rightframe, text="Inserire coordinata X")
 lab1.pack(padx=5)
 ent1 = tk.Entry(rightframe)
+ent1.insert(0, ls_lbl_in[6])
 ent1.pack(padx=5)
 
 chkValueX = tk.BooleanVar()
@@ -501,25 +519,7 @@ ent5 = tk.Entry(rightframe)
 ent5.insert(0, ls_lbl_in[3])
 ent5.pack(padx=5)
 
-rightframe.pack(side="right")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+rightframe.pack(side="right", fill="x", pady=10, padx=10)
 
 
 
@@ -550,45 +550,49 @@ filemenu.add_cascade(label=" Resize_cmd_window_SMALL",
 
 filemenu.add_separator()
 filemenu.add_cascade(label="Reset Data", command=lambda: ist1.reinitialize())
-#filemenu.add_cascade(label="Restart", command=lambda: restart_program()) non funziona bene quando vado a riprendere i punti
+filemenu.add_cascade(label="Reboot Program", command=lambda: restart_program()) #non funziona bene quando vado a riprendere i punti
 filemenu.add_cascade(label="Exit", command=root.destroy)
 
 root.config(menu=menubar)
+
+
 
 
 def open_new_window():
     window = tk.Toplevel(root)
     window.attributes("-topmost", True)
     window.title("Graph")
-    window.geometry("480x480")
+    #window.geometry("480x520")
     window.tk.call("wm", "iconphoto", window._w, photo)
 
-    f = Figure(figsize=(10,6), dpi=100)
+    ckvY = chkValueY.get()
+    ckvX = chkValueX.get()
+
+    #f = Figure(figsize=(5,5), dpi=100)
+    f = Figure()
     a = f.add_subplot(111)
-    a.set_xscale("log")
-    a.set_yscale("log")
+
+    if ckvX == True : a.set_xscale("log")
+    if ckvY == True : a.set_yscale("log")
 
     csv_name = "OUTPUT\\" + ent6.get() + ".csv"
     pullData = open(csv_name,"r").read()
     dataList = pullData.split('\n')
     xList, yLIst = coordinates()
 
-
-
     a.plot(xList,yLIst)
 
+    picTopframe = tk.Frame(root)
     canvas = FigureCanvasTkAgg(f, window)
     canvas.draw()
     canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+    picTopframe.pack(side="top", fill="x", pady=10, padx=10)
 
+    picBottomframe = tk.Frame(root)
     toolbar = NavigationToolbar2Tk(canvas, window)
     toolbar.update()
     canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
-
-
-
-
-
+    picBottomframe.pack(side="top", fill="x", pady=10, padx=10)
 
 
 
