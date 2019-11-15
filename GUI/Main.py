@@ -1,3 +1,17 @@
+#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
+#   Pyhton 2
+#
+#   Required external packages
+#   - numpy
+#   - opencv
+#   - pyautogui
+#   - matplotlib
+#
+#   Developed By Fabrizio Peruzzo
+#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
+
+
+
 import Tkinter as tk
 from class_point2graph import *
 import tkMessageBox
@@ -16,6 +30,13 @@ import matplotlib.pyplot as plt
 
 LARGE_FONT = ("Verdana", 12)
 style.use("ggplot")
+
+
+try:
+    os.mkdir(".\OUTPUT")
+except:
+    pass
+
 
 
 #from main_def import *
@@ -369,7 +390,7 @@ root = tk.Tk()
 
 root.title("   Geodata Point2Graph  ")
 screenwidth = root.winfo_screenwidth()
-winwidth = 490
+winwidth = 530
 winheight = 600
 distance = screenwidth - winwidth - 20
 # porta al di sotto dell'angolo di 100 pixel
