@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import os
 import pyautogui
-import Tkinter
+import Tkinter as tk
 import tkMessageBox
 
 
@@ -26,6 +26,10 @@ class point2graph:
         self.y_end = 0
         self.cropped = False
         self.delistance = False
+        self.xcoorigwin = float(10.01)
+        self.ycoorigwin = float(5.02)
+        self.xcoowin = float(45.5)
+        self.ycoowin = float(35.6)
 
     def print_screen(self):
 
@@ -36,9 +40,13 @@ class point2graph:
 
     def crop_image(self):
 
+        self.image = cv2.imread(self.filename)
+        cropping = False
+
         def mouse_crop(event, x, y, flags, param):
-            cropping = False
+
             refPoint = []
+            cropping = False
 
             if event == cv2.EVENT_LBUTTONDOWN:
                 if cropping == False:
@@ -72,10 +80,45 @@ class point2graph:
         print "The list has been reinitialized"
         self.image = cv2.imread(self.filename_init)
         self.delistance = False
+        self.cropped = False
 
     def get_point(self):
 
+        self.image = cv2.imread(self.filename_init)
+
+        def callback():
+            midIQ.destroy()
+
         def draw_point(event, x, y, flags, param):
+
+            def read_label():
+
+                try:
+
+                    f = open("SETTINGS\\label_input.txt", 'r')
+                    with f:
+                        ls_label = f.readlines()
+
+                    for i in ls_label:
+                        ls_label[ls_label.index(i)] = i.replace('\n', '')
+
+                    x0_in = ls_label[4]
+                    y0_in = ls_label[5]
+                    coomaxX = ls_label[6]
+                    coomaxY = ls_label[7]
+
+                except:  # se non trova il file con input .txt
+
+                    x0_in = 0
+                    y0_in = 0
+                    coomaxX = 10  # coord max X
+                    coomaxY = 10  # coord max Y
+
+                return x0_in, y0_in, coomaxX, coomaxY
+
+
+
+
 
             if event == cv2.EVENT_LBUTTONDBLCLK:
                 imgss_temp = cv2.imwrite(self.filename_temp, self.image)
@@ -86,12 +129,48 @@ class point2graph:
                 cv2.imshow("image", self.image)
                 print(x, y)
                 self.ls_point.append([x, y])
-                self.delistance = True
+                self.n_click = len(self.ls_point)
+
+                if self.n_click == 1:
+                    self.delistance = True
+
+                #         midIQ = tk.Tk()
+                #         midIQ.wm_title("Origin-Point")
+                #         #
+                #         label = tk.Label(midIQ, text="Insert projectname")
+                #         label.pack(side="top", fill="x", pady=10)
+                #         e20 = tk.Entry(midIQ)
+                #         e20.insert(projectname)
+                #         e20.pack()
+                #         e20.focus_set()
+                #         #
+                #         label00 = tk.Label(midIQ, text="Insert x,y orgin coordinates")
+                #         label00.pack(side="top", fill="x", pady=10)
+                #         e21 = tk.Entry(midIQ)
+                #         e21.insert(read_label[0], read_label[1])
+                #         e21.pack()
+                #         e21.focus_set()
+                #         b = tk.Button(midIQ, text="Submit", width=10, command=callback)
+                #         b.pack()
+                #         label0 = tk.Label(midIQ, text="Next step select Y point")
+                #         label0.pack(side="top", fill="x", pady=10)
+                #         tk.mainloop()
+                #         self.delistance = True
+                #
+                #         self.projname = str(e20.get())
+                #         self.xcoorigwin = float(e21.get()[0])
+                #         self.ycoorigwin = float(e21.get()[0])
+                #
+
+
+
+
 
 
             elif event == cv2.EVENT_RBUTTONDOWN:
                 if self.delistance == True:
                     self.ls_point.pop()
+                    self.n_click = len(self.ls_point)
                     print self.ls_point
                     self.image = cv2.imread(self.filename_temp)
                     cv2.imshow("image", self.image)
@@ -102,30 +181,32 @@ class point2graph:
                                                       icon='warning')
                     if MsgBox == 'yes':
                         self.ls_point = []
-                        print 'hai schiacciato si'
+                        print 'You pressed yes'
                         print "The list has been reinitialized"
                         self.image = cv2.imread(self.filename_init)
                         cv2.imshow("image", self.image)
                         self.delistance = False
                     else:
                         self.delistance = True
-                        print 'hai schiacciato no'
+                        print 'You pressed no'
 
         if len(self.ls_point) == 0: tkMessageBox.showinfo("Message",
-                                                          "SELECT IN THE ORDER:\n  \n   "
+                                                          "SELECT:\n"
                                                           "1) ORIGIN\n   "
                                                           "2) MAX Y AXIS\n   "
                                                           "3) MAX X AXIS\n   "
-                                                          "4) POINTS OF THE GRAPH\n   "
+                                                          "4) POINTS ON THE GRAPH\n   "
                                                           "5) PRESS ESC TO FINISH\n   "
                                                           "\n"
                                                           "*** MOUSE RIGHT CLICK TO CORRECT WRONG ENTRY ***")
 
         while True:
 
-            cv2.namedWindow("image")
+            labelwindow = "image"
+
+            cv2.namedWindow(labelwindow)
             cv2.setMouseCallback("image", draw_point)
-            cv2.imshow("image", self.image)
+            cv2.imshow(labelwindow, self.image)
 
             if cv2.waitKey(33) == ord('i'):
 
@@ -137,7 +218,7 @@ class point2graph:
 
             k = cv2.waitKey(33)
             if k == 27:
-                print "\nLa lista di punti e':\n", self.ls_point
+                print "\nThe list of point is e':\n", self.ls_point
                 tkMessageBox.showinfo("Message", "Now press Print Coordinate from File/Menu ")
                 break
 

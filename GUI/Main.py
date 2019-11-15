@@ -18,28 +18,24 @@ LARGE_FONT = ("Verdana", 12)
 style.use("ggplot")
 
 
-
 #from main_def import *
 
 
 # FUNZIONI OPENCV  DALLA CLASSE
 #############################################################################
-ist1 = point2graph()    #######    INITIALIZE THE CLASS -_> ISTANCE   #######
+ist1 = point2graph()  # INITIALIZE THE CLASS -_> ISTANCE   #######
 ############Menu#############################################################
-
-
-
 
 
 ##########################################################
 #            RICHIAMO TUTTE LE DEF
 ##########################################################
-def restart_program():
-    """Restarts the current program.
-    Note: this function does not return. Any cleanup action (like
-    saving data) must be done before calling this function."""
-    python = sys.executable
-    os.execl(python, python, * sys.argv)
+
+
+
+
+
+
 
 
 def read_label():
@@ -116,6 +112,8 @@ def store_lbl_entry():
 
 ##########################################################
 # scrivi file con coordinate FINALI SU CSV
+
+
 def write_files(list1, list2, label1, label2, unit1, unit2):
 
     csv_name = "OUTPUT\\" + ent6.get() + ".csv"
@@ -125,8 +123,7 @@ def write_files(list1, list2, label1, label2, unit1, unit2):
     f.write(label1 + ';' + label2 + '\n')
     f.write(unit1 + ';' + unit2 + '\n')
 
-
-    for n in range(1, (len(list1)+1)):
+    for n in range(1, (len(list1) + 1)):
         str_append = str(list2[n - 1]) + ';' + str(list1[n - 1]) + '\n'
         f.write(str_append)
     f.close()
@@ -137,6 +134,8 @@ def write_files(list1, list2, label1, label2, unit1, unit2):
 def cooandgraph():
     coordinates()
     open_new_window()
+
+##########################################################
 
 def coordinates():
 
@@ -234,6 +233,8 @@ def coordinates():
     else:
         print 'X coo: ', xcoot
 
+    # USA LA FUNZIONE PER SCRIVERE IL FILE CSV
+
     write_files(
         ycoot, xcoot, ls_lbl_in_f[0], ls_lbl_in_f[2], ls_lbl_in_f[1], ls_lbl_in_f[3])
 
@@ -294,275 +295,15 @@ def resize_cmd_win_small():
 
 
 
+######################################################################################
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#############################################################
-#               INIZIO             CODICE
-#############################################################
-
-# tk= tkinter is the module
-# Tk is the class inside tkinter you dont need arguments
-
-
-resize_cmd_win_small()
-
-root = tk.Tk()
-
-
-
-
-
-
-########      TOP FRAME   ######################################################
-
-
-
-
-
-root.title("   Geodata Point2Graph  ")
-screenwidth = root.winfo_screenwidth()
-winwidth = 400
-winheight = 600
-distance = screenwidth - winwidth -20
-# porta al di sotto dell'angolo di 100 pixel
-root.geometry(str(winwidth) + 'x' + str(winheight) +
-              '+' + str(distance) + '+100')
-
-curr_dir = os.path.dirname(__file__)
-
-img_path = curr_dir + "/image/gd_small.gif"
-
-photo = tk.PhotoImage(file=img_path)
-root.tk.call("wm", "iconphoto", root._w, photo)
-
-
-
-
-
-
-
-topframe = tk.Frame(root, bg="blue")
-topframe.pack()
-
-button1 = tk.Button(topframe, text="1 PRNT SCR", fg="black", command=lambda: ist1.print_screen())
-button2 = tk.Button(topframe, text="2 CROP IMG", fg="black", command=lambda: ist1.crop_image())
-button3 = tk.Button(topframe, text="3 PIC PNT", fg="black", command=lambda: ist1.get_point())
-button4 = tk.Button(topframe, text="4 PRNT COOR", fg="black", command=lambda: cooandgraph())
-
-button1.pack(side='left', padx=4, pady=2)
-button2.pack(side='left', padx=4, pady=2)
-button3.pack(side='left', padx=4, pady=2)
-button4.pack(side='left', padx=4, pady=2)
-
-topframe.pack(side="top", fill="x")
-
-
-
-
-
-
-
-w = tk.Label(root, text="Fill the form below")
-#w1 = tk.Label(root, text="Select options from file/menu ")
-w2 = tk.Label(root, text="Follow steps from 1 to 4")
-w3 = tk.Label(root, text="Grab csv data in 'OUTPUT' folder")
-w4 = tk.Label(root, text="              ")
-
-w.pack()
-#w1.pack()
-w2.pack()
-w3.pack()
-w4.pack()
-
-# ENTRY LABEL
-
-ls_lbl_in = read_label()
-
-lab6 = tk.Label(root, text="Inserire nome file senza estensione")
-lab6.pack()
-ent6 = tk.Entry(root)
-ent6.pack()
-
-
-
-
-
-
-
-
-
-
-
-#############        BOTTOM    FRAME      ********************************
-####            to be inserted before every other things
-####   il primo che indico come bottom ha la precedenza sugli altri
-
-bottomframe = tk.Frame(root)
-
-
-# ent9 = tk.Entry(bottomframe)
-# ent9.insert(0, 'Here the Python output are shown')
-# ent9.pack()
-
-
-w5 = tk.Label(bottomframe,
-              justify=tk.LEFT,
-              padx=10,
-              text="Fabrizio Peruzzo 2019 Geodata S.p.a").pack(side="left")
-
-bottomframe.pack(side="bottom", padx = 5 )
-
-
-
-
-
-
-########               LEFT FRAME             ##############################
-
-leftframe = tk.Frame(root)
-
-lab = tk.Label(leftframe, text="Inserire coordinata Y")
-lab.pack()
-ent = tk.Entry(leftframe)
-ent.insert(0, ls_lbl_in[7])
-ent.pack()
-
-chkValueY = tk.BooleanVar()
-#chkValueY = False
-chb1 = tk.Checkbutton(leftframe, text="Log scale", variable=chkValueY)
-chb1.pack()
-
-
-lab7 = tk.Label(leftframe, text="Inserire origine Y")
-lab7.pack()
-ent7 = tk.Entry(leftframe)
-ent7.insert(0, ls_lbl_in[5])
-ent7.pack()
-
-lab2 = tk.Label(leftframe, text="Inserire label Y")
-lab2.pack()
-ent2 = tk.Entry(leftframe)
-ent2.insert(0, ls_lbl_in[0])
-ent2.pack()
-
-lab4 = tk.Label(leftframe, text="Inserire unita di misura Y")
-lab4.pack()
-ent4 = tk.Entry(leftframe)
-ent4.insert(0, ls_lbl_in[1])
-ent4.pack()
-
-
-
-leftframe.pack(side="left", fill="x", pady=10, padx=10)
-
-
-
-
-
-
-
-
-
-
-
-
-
-#############        RIGHT    FRAME      ********************************
-
-
-rightframe = tk.Frame(root)
-
-lab1 = tk.Label(rightframe, text="Inserire coordinata X")
-lab1.pack(padx=5)
-ent1 = tk.Entry(rightframe)
-ent1.insert(0, ls_lbl_in[6])
-ent1.pack(padx=5)
-
-chkValueX = tk.BooleanVar()
-#chkValueX = False
-chb2 = tk.Checkbutton(rightframe, text="Log scale", var=chkValueX)
-chb2.pack()
-
-lab8 = tk.Label(rightframe, text="Inserire origine X")
-lab8.pack()
-ent8 = tk.Entry(rightframe)
-ent8.insert(0, ls_lbl_in[4])
-ent8.pack()
-
-lab3 = tk.Label(rightframe, text="Inserire label X")
-lab3.pack(padx=5)
-ent3 = tk.Entry(rightframe)
-ent3.insert(0, ls_lbl_in[2])
-ent3.pack(padx=5)
-
-lab5 = tk.Label(rightframe, text="Inserire unita di misura X")
-lab5.pack(padx=5)
-ent5 = tk.Entry(rightframe)
-ent5.insert(0, ls_lbl_in[3])
-ent5.pack(padx=5)
-
-rightframe.pack(side="right", fill="x", pady=10, padx=10)
-
-
-
-
-#########           menubar  ****************************
-
-
-
-menubar = tk.Menu(root)
-filemenu = tk.Menu(menubar, tearoff=1)
-menubar.add_cascade(label="File",  menu=filemenu)
-
-filemenu.add_cascade(label="1) Print_Screen", command=lambda: ist1.print_screen())
-filemenu.add_cascade(label="2) Crop_Image", command=lambda: ist1.crop_image())
-filemenu.add_cascade(label="3) Pic_Orig_X_Y_Points", command=lambda: ist1.get_point())
-entry = print_entry
-#filemenu.add_cascade(label="3) Print_Entry", command=lambda: entry()) donna inutile
-filemenu.add_cascade(label="4) Print_Coordinate", command=lambda: coordinates())  # in automatico scrive il file
-
-filemenu.add_cascade(label="5) Show Graph", command=lambda : open_new_window())
-
-
-filemenu.add_separator()
-filemenu.add_cascade(label=" Resize_cmd_window_BIG",
-                     command=lambda: resize_cmd_win())  # in automatico scrive il file
-filemenu.add_cascade(label=" Resize_cmd_window_SMALL",
-                     command=lambda: resize_cmd_win_small())  # in automatico scrive il file
-
-filemenu.add_separator()
-filemenu.add_cascade(label="Reset Data", command=lambda: ist1.reinitialize())
-filemenu.add_cascade(label="Reboot Program", command=lambda: restart_program()) #non funziona bene quando vado a riprendere i punti
-filemenu.add_cascade(label="Exit", command=root.destroy)
-
-root.config(menu=menubar)
-
-
-
+#           OPEN FINAL GRAPH WINDOWS
 
 def open_new_window():
     window = tk.Toplevel(root)
     window.attributes("-topmost", True)
-    window.title("Graph")
-    #window.geometry("480x520")
+    window.title("Graph              -----   TO ESC PRESS THE X BUTTON -----")
+    # window.geometry("480x520")
     window.tk.call("wm", "iconphoto", window._w, photo)
 
     ckvY = chkValueY.get()
@@ -572,15 +313,17 @@ def open_new_window():
     f = Figure()
     a = f.add_subplot(111)
 
-    if ckvX == True : a.set_xscale("log")
-    if ckvY == True : a.set_yscale("log")
+    if ckvX == True:
+        a.set_xscale("log")
+    if ckvY == True:
+        a.set_yscale("log")
 
     csv_name = "OUTPUT\\" + ent6.get() + ".csv"
-    pullData = open(csv_name,"r").read()
+    pullData = open(csv_name, "r").read()
     dataList = pullData.split('\n')
     xList, yLIst = coordinates()
 
-    a.plot(xList,yLIst)
+    a.plot(xList, yLIst)
 
     picTopframe = tk.Frame(root)
     canvas = FigureCanvasTkAgg(f, window)
@@ -595,6 +338,226 @@ def open_new_window():
     picBottomframe.pack(side="top", fill="x", pady=10, padx=10)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##########################################################################################
+#                          INIZIO             CODICE
+##########################################################################################
+
+# tk= tkinter is the module
+# Tk is the class inside tkinter you dont need arguments
+
+
+resize_cmd_win_small()
+
+root = tk.Tk()
+
+
+root.title("   Geodata Point2Graph  ")
+screenwidth = root.winfo_screenwidth()
+winwidth = 490
+winheight = 600
+distance = screenwidth - winwidth - 20
+# porta al di sotto dell'angolo di 100 pixel
+root.geometry(str(winwidth) + 'x' + str(winheight) +
+              '+' + str(distance) + '+100')
+
+curr_dir = os.path.dirname(__file__)
+
+img_path = curr_dir + "/image/gd_small.gif"
+
+photo = tk.PhotoImage(file=img_path)
+root.tk.call("wm", "iconphoto", root._w, photo)
+
+
+########      TOP FRAME   ######################################################
+
+
+topframe = tk.Frame(root, bg="blue")
+topframe.pack()
+
+button1 = tk.Button(topframe, text="1 PRNT SCR", fg="black",
+                    command=lambda: ist1.print_screen())
+button2 = tk.Button(topframe, text="2 CROP IMG", fg="black",
+                    command=lambda: ist1.crop_image())
+button3 = tk.Button(topframe, text="3 PIC PNT", fg="black",
+                    command=lambda: ist1.get_point())
+button4 = tk.Button(topframe, text="4 PRNT COOR",
+                    fg="black", command=lambda: cooandgraph())
+button4b = tk.Button(topframe, text="5 RESTART",
+                    fg="black", command=lambda: ist1.reinitialize())
+
+button1.pack(side='left', padx=4, pady=2)
+button2.pack(side='left', padx=4, pady=2)
+button3.pack(side='left', padx=4, pady=2)
+button4.pack(side='left', padx=4, pady=2)
+button4b.pack(side='left', padx=4, pady=2)
+
+topframe.pack(side="top", fill="x")
+
+
+w = tk.Label(root, text="Fill the form below")
+#w1 = tk.Label(root, text="Select options from file/menu ")
+w2 = tk.Label(root, text="Follow steps from 1 to 4")
+w3 = tk.Label(root, text="Grab csv data in 'OUTPUT' folder")
+w4 = tk.Label(root, text="              ")
+
+w.pack()
+# w1.pack()
+w2.pack()
+w3.pack()
+w4.pack()
+
+# ENTRY LABEL
+
+ls_lbl_in = read_label()
+
+lab6 = tk.Label(root, text="Insert file name without extension")
+lab6.pack()
+ent6 = tk.Entry(root)
+ent6.pack()
+
+
+# BOTTOM    FRAME      ********************************
+# to be inserted before every other things
+# il primo che indico come bottom ha la precedenza sugli altri
+
+bottomframe = tk.Frame(root)
+
+
+# ent9 = tk.Entry(bottomframe)
+# ent9.insert(0, 'Here the Python output are shown')
+# ent9.pack()
+
+
+w5 = tk.Label(bottomframe,
+              justify=tk.LEFT,
+              padx=10,
+              text="Fabrizio Peruzzo 2019 Geodata S.p.a").pack(side="left")
+
+bottomframe.pack(side="bottom", padx=5)
+
+
+########               LEFT FRAME             ##############################
+
+leftframe = tk.Frame(root)
+
+lab = tk.Label(leftframe, text="Insert Y coordinate")
+lab.pack()
+ent = tk.Entry(leftframe)
+ent.insert(0, ls_lbl_in[7])
+ent.pack()
+
+chkValueY = tk.BooleanVar()
+#chkValueY = False
+chb1 = tk.Checkbutton(leftframe, text="Log scale", variable=chkValueY)
+chb1.pack()
+
+
+lab7 = tk.Label(leftframe, text="Insert Y origin")
+lab7.pack()
+ent7 = tk.Entry(leftframe)
+ent7.insert(0, ls_lbl_in[5])
+ent7.pack()
+
+lab2 = tk.Label(leftframe, text="Inserire label Y")
+lab2.pack()
+ent2 = tk.Entry(leftframe)
+ent2.insert(0, ls_lbl_in[0])
+ent2.pack()
+
+lab4 = tk.Label(leftframe, text="Insert Y unit")
+lab4.pack()
+ent4 = tk.Entry(leftframe)
+ent4.insert(0, ls_lbl_in[1])
+ent4.pack()
+
+
+leftframe.pack(side="left", fill="x", pady=10, padx=10)
+
+
+# RIGHT    FRAME      ********************************
+
+
+rightframe = tk.Frame(root)
+
+lab1 = tk.Label(rightframe, text="Insert X coordinate")
+lab1.pack(padx=5)
+ent1 = tk.Entry(rightframe)
+ent1.insert(0, ls_lbl_in[6])
+ent1.pack(padx=5)
+
+chkValueX = tk.BooleanVar()
+#chkValueX = False
+chb2 = tk.Checkbutton(rightframe, text="Log scale", var=chkValueX)
+chb2.pack()
+
+lab8 = tk.Label(rightframe, text="Insert X origin")
+lab8.pack()
+ent8 = tk.Entry(rightframe)
+ent8.insert(0, ls_lbl_in[4])
+ent8.pack()
+
+lab3 = tk.Label(rightframe, text="Insert label X")
+lab3.pack(padx=5)
+ent3 = tk.Entry(rightframe)
+ent3.insert(0, ls_lbl_in[2])
+ent3.pack(padx=5)
+
+lab5 = tk.Label(rightframe, text="Insert X unit")
+lab5.pack(padx=5)
+ent5 = tk.Entry(rightframe)
+ent5.insert(0, ls_lbl_in[3])
+ent5.pack(padx=5)
+
+rightframe.pack(side="right", fill="x", pady=10, padx=10)
+
+
+# menubar  ****************************
+
+
+menubar = tk.Menu(root)
+filemenu = tk.Menu(menubar, tearoff=1)
+menubar.add_cascade(label="File",  menu=filemenu)
+
+filemenu.add_cascade(label="1) Print_Screen",
+                     command=lambda: ist1.print_screen())
+filemenu.add_cascade(label="2) Crop_Image", command=lambda: ist1.crop_image())
+filemenu.add_cascade(label="3) Pic_Orig_X_Y_Points",
+                     command=lambda: ist1.get_point())
+entry = print_entry
+# filemenu.add_cascade(label="3) Print_Entry", command=lambda: entry()) donna inutile
+filemenu.add_cascade(label="4) Print_Coordinate",
+                     command=lambda: coordinates())  # in automatico scrive il file
+
+filemenu.add_cascade(label="5) Show Graph", command=lambda: open_new_window())
+
+
+filemenu.add_separator()
+filemenu.add_cascade(label=" Resize_cmd_window_BIG",
+                     command=lambda: resize_cmd_win())  # in automatico scrive il file
+filemenu.add_cascade(label=" Resize_cmd_window_SMALL",
+                     command=lambda: resize_cmd_win_small())  # in automatico scrive il file
+
+filemenu.add_separator()
+filemenu.add_cascade(label="Restart Program", command=lambda: ist1.reinitialize())
+filemenu.add_cascade(label="Exit", command=root.destroy)
+
+root.config(menu=menubar)
 
 
 root.mainloop()
