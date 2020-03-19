@@ -13,6 +13,11 @@ Tool developed to digitalize data from pictures
 " target="_blank"><img src=https://github.com/fabrizioperuzzo/NewPic2File/blob/master/02.jpg" 
 alt="Pic2File" width="240" height="180" border="10" /></a>
 
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=CV6IiVJq0W8
+" target="_blank"><img src="https://github.com/fabrizioperuzzo/NewPic2File/blob/master/02.jpg" 
+alt="Watch Pic2File Tutorial" width="240" height="180" border="10" /></a>
+
 Guarda il tutorial:
 
 [![Watch Pic2File Tutorial](https://github.com/fabrizioperuzzo/NewPic2File/blob/master/02.jpg)](https://www.youtube.com/watch?v=CV6IiVJq0W8)
